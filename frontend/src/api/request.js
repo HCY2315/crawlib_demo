@@ -3,7 +3,7 @@ import router from '../router'
 import { Message } from 'element-ui'
 
 // 根据 VUE_APP_BASE_URL 生成 baseUrl
-let baseUrl = process.env.VUE_APP_BASE_URL ? process.env.VUE_APP_BASE_URL : 'http://localhost:8000'
+let baseUrl = process.env.VUE_APP_BASE_URL ? process.env.VUE_APP_BASE_URL : 'http://42.193.122.249:8500'
 if (!baseUrl.match(/^https?/i)) {
   baseUrl = `${window.location.protocol}//${window.location.host}${process.env.VUE_APP_BASE_URL}`
 }

@@ -64,9 +64,9 @@
         </div>
       </div>
       <div class="tips">
-        <span>{{$t('Initial Username/Password')}}: admin/admin</span>
+        <!-- <span>{{$t('Initial Username/Password')}}: admin/admin</span> -->
         <a href="https://github.com/crawlab-team/crawlab" target="_blank" style="float:right">
-          <img src="https://img.shields.io/github/stars/crawlab-team/crawlab?logo=github">
+          <!-- <img src="https://img.shields.io/github/stars/crawlab-team/crawlab?logo=github"> -->
         </a>
       </div>
       <div class="lang">
