@@ -15,9 +15,9 @@ FROM alpine
 RUN apk add nginx
 COPY --from=frontend-build /app/dist /app/dist
 COPY --from=frontend-build /app/conf/crawlab.conf /etc/nginx/conf.d
-RUN nginx -s start
-# COPY ./dist /usr/share/nginx/html
+#RUN nginx -s start
+#COPY ./dist /usr/share/nginx/html
 
-EXPOSE 80
+#EXPOSE 80
 #EXPOSE 8080
 
