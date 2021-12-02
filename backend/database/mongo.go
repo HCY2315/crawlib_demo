@@ -23,6 +23,7 @@ func GetDb() (*mgo.Session, *mgo.Database) {
 	return s, s.DB(viper.GetString("mongo.db"))
 }
 
+// 获取mongodb中表的会话连接
 func GetCol(collectionName string) (*mgo.Session, *mgo.Collection) {
 	s := GetSession()
 	db := s.DB(viper.GetString("mongo.db"))

@@ -14,7 +14,7 @@ import (
 )
 
 func InitUserService() error {
-	_ = CreateNewUser("admin", "admin", constants.RoleAdmin, "", bson.ObjectIdHex(constants.ObjectIdNull))
+	_ = CreateNewUser("admin", "pwd@123", constants.RoleAdmin, "", bson.ObjectIdHex(constants.ObjectIdNull))
 	return nil
 }
 

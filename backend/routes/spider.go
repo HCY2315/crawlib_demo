@@ -1766,6 +1766,7 @@ func PostSpiderScrapyItems(c *gin.Context) {
 func GetSpiderScrapyPipelines(c *gin.Context) {
 	id := c.Param("id")
 
+	// 返回s是否是ObjectId的有效十六进制表示形式
 	if !bson.IsObjectIdHex(id) {
 		HandleErrorF(http.StatusBadRequest, c, "spider_id is invalid")
 		return

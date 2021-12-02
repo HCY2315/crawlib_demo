@@ -3,9 +3,9 @@ api:
 mongo:
   host: localhost
   port: 27017
-  db: crawlab_test
-  username: ""
-  password: ""
+  db: crawlab
+  username: "admin"
+  password: "admin"
   authSource: "admin"
 redis:
   address: localhost

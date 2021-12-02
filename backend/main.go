@@ -12,14 +12,6 @@ import (
 	"crawlab/services"
 	"crawlab/services/challenge"
 	"crawlab/services/rpc"
-	"github.com/apex/log"
-	"github.com/gin-gonic/gin"
-	"github.com/gin-gonic/gin/binding"
-	"github.com/go-playground/validator/v10"
-	"github.com/olivere/elastic/v7"
-	"github.com/spf13/viper"
-	"github.com/swaggo/gin-swagger"
-	"github.com/swaggo/gin-swagger/swaggerFiles"
 	"net"
 	"net/http"
 	"os"
@@ -27,6 +19,15 @@ import (
 	"runtime/debug"
 	"syscall"
 	"time"
+
+	"github.com/apex/log"
+	"github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin/binding"
+	"github.com/go-playground/validator/v10"
+	"github.com/olivere/elastic/v7"
+	"github.com/spf13/viper"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
 
 var swagHandler gin.HandlerFunc
@@ -36,11 +37,17 @@ func init() {
 }
 func main() {
 	app := gin.New()
+	//Logger实例将日志写入gin.DefaultWriter的Logger中间件。
+	//默认情况下，gin.DefaultWriter=os.Stdout。
+
+	// Recovery返回一个中间件，该中间件可以从任何恐慌中恢复，并在有恐慌时写入500
 	app.Use(gin.Logger(), gin.Recovery())
+	// Validator是实现StructValidator的默认验证器
 	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
 		_ = v.RegisterValidation("bid", validate2.MongoID)
 	}
 
+	// swagger 代码说明
 	if swagHandler != nil {
 		app.GET("/swagger/*any", swagHandler)
 	}

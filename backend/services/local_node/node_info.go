@@ -2,8 +2,9 @@ package local_node
 
 import (
 	"errors"
-	"github.com/hashicorp/go-sockaddr"
 	"os"
+
+	"github.com/hashicorp/go-sockaddr"
 )
 
 var localNode *LocalNode
@@ -39,6 +40,7 @@ func (l *LocalNode) Ready() error {
 
 func NewLocalNode(ip string, identify string, identifyTypeString string) (node *LocalNode, err error) {
 	addrs, err := sockaddr.GetPrivateInterfaces()
+	// addrs:[192.168.1.14/24 {6 1500 en0 14:7d:da:83:0b:4d up|broadcast|multicast}]
 	if ip == "" {
 		if err != nil {
 			return node, err
